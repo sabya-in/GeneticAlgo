@@ -1,0 +1,23 @@
+# Selecting the proper parameters that best optimizes Linear regression (data: Sci Kit Breast cancer data)
+
+1. Best convergence speed at size = no of features (= 30)
+   --------------------------------------------------------------------------------
+   100 is worst case scenario and took a huge time to converge with lower accuracy, 
+   it feels useless to increase size beyond n_feat, so that in an uniform randomly 
+   distributed set at lease each feature have an fair 50p.c change of selection
+   in a binary chromosome. Each feature hence will have an fair change of selection
+   beyond 30 fair chance of selection may not be affected much and for less than 30 fair
+   chance of selection for all feature is less. 
+ 
+2. Selection of just two parents and weeding out two least fit individual with two mutated children 
+   (Steady State over Generational , https://www.tutorialspoint.com/genetic_algorithms/genetic_algorithms_population.htm)
+   ---------------------------------------------------------------------------------
+    Selection of just parents reduces search space but at same time consolidates a seed
+    or child for faster search and convergence. Also to reasonably broaden the search 
+    field we only generate two offprings and also mutate them with a 10 percent rate 
+    in mutation. This ofcourse works very well and also does not reduce the search space
+    considerably since only the two weakest individuals in a generation are removed other
+    weaker individuals remain. This is specially effective in this case since the target
+    optimization is not much higher than unoptimized effeciency / accuracy. 
+    (from 90p.c to about 99p.c when optimized) This achives , reasoanable search 
+    space but still deterministic progress towards the intended accuracy.
